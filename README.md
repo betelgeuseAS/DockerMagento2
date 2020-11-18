@@ -281,13 +281,17 @@ Backup (dump) бази у файл
 - **`docker-compose stop`**
 - **`docker-compose up --force-recreate --build`**
 
+Magento 2 Helper
+-------------------------------------------------------
+[Helper Link](https://github.pp.ua/anbis/magento2-helper)
+
 Installation errors are possible
 -------------------------------------------------------
 1) [Issue and Resolve](https://github.com/laradock/laradock/issues/16)
 
 2) Issue [here](https://magento.stackexchange.com/questions/241116/i-am-getting-error-of-page-cache-is-not-writable-in-magento-2-2-5-in-linux-os) and [here](https://magento.stackexchange.com/questions/282608/magento-2class-magento-framework-app-http-interceptor-does-not-exist)  
     Resolve:
-    - cd docker-magento2
-    - docker exec -ti magento2_php bash
-    - chmod 777 -R var/
-    - php bin/magento setup:di:compile
+    - `cd docker-magento2`
+    - `docker exec -ti magento2_php bash`
+    - `chmod 777 -R var/`
+    - `php bin/magento setup:di:compile`
