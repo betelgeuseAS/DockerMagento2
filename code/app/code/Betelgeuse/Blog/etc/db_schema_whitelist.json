@@ -1,0 +1,32 @@
+{
+    "betelgeuse_blog_articles": {
+        "column": {
+            "entity_id": true,
+            "author": true,
+            "title": true,
+            "description": true,
+            "content": true,
+            "status": true,
+            "enabled": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "betelgeuse_blog_comments": {
+        "column": {
+            "entity_id": true,
+            "article_id": true,
+            "author": true,
+            "message": true,
+            "approved": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -7,4 +7,10 @@
 /logs
 /.idea
 !/code/.gitkeep
-/code
+
+!/code/
+/code/*
+!/code/app/
+
+/code/app/*
+!/code/app/code
