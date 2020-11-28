@@ -24,6 +24,7 @@ class CreateArticle extends Action implements HttpGetActionInterface, HttpPostAc
     public
     function __construct(Context $context, PageFactory $resultPageFactory, ArticleFactory $articleFactory) {
         parent::__construct($context);
+
         $this->resultPageFactory = $resultPageFactory;
         $this->articleFactory = $articleFactory;
     }
@@ -33,7 +34,7 @@ class CreateArticle extends Action implements HttpGetActionInterface, HttpPostAc
         $post = $this->getRequest()->getPostValue();
 //        $post = (array) $this->getRequest()->getPost();
         if (!$post) {
-            $this->_redirect('blog/*/');
+            $this->_redirect('blog/article/listing');
             return;
         }
 

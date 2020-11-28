@@ -9,7 +9,7 @@
 <ul class="list items">
     <?php foreach($block->getArticleCollection() as $article) { ?>
         <li class="item">
-            <a href="<?= $block->getUrl('blog/article/view'); ?>">
+            <a href="<?= $block->getUrl('blog/article/view?id=' . $article->getEntityId()); ?>">
                 <strong><?php echo $article->getTitle(); ?></strong>
             </a>
             <p><?php echo $article->getDescription(); ?></p>

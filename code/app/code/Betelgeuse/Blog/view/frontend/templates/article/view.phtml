@@ -1,0 +1,25 @@
+<?php
+/** @var Betelgeuse\Blog\Block\Article\View $block */
+?>
+
+<div class="actions">
+    <a href="<?= $block->getUrl('blog/article/listing'); ?>" class="action primary" title="Back"><span><?= $block->escapeHtmlAttr(__('Back')); ?></span></a>
+</div>
+
+<?php $article = $block->getArticle(); ?>
+
+<?php if( $article = $block->getArticle() ): ?>
+    <h3><?php echo $article->getTitle(); ?></h3>
+
+    <div>
+        <strong><?php echo $article->getAuthor(); ?></strong>
+        <span> | </span>
+        <span><?php echo $block->getFormatDate($article->getCreatedAt()); ?></span>
+    </div>
+
+    <?php if( $article->getContent() ): ?>
+        <p><?php echo $article->getContent(); ?></p>
+    <?php else: ?>
+        <p><?php echo $article->getDescription(); ?></p>
+    <?php endif; ?>
+<?php endif; ?>
