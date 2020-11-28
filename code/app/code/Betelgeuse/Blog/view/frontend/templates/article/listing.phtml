@@ -1,0 +1,21 @@
+<?php
+/** @var Betelgeuse\Blog\Block\Article\Listing $block */
+?>
+
+<div class="actions">
+    <a href="<?= $block->getUrl('blog/article/create'); ?>" class="action primary" title="Create"><span><?= $block->escapeHtmlAttr(__('Create')); ?></span></a>
+</div>
+
+<ul class="list items">
+    <?php foreach($block->getArticleCollection() as $article) { ?>
+        <li class="item">
+            <a href="<?= $block->getUrl('blog/article/view'); ?>">
+                <strong><?php echo $article->getTitle(); ?></strong>
+            </a>
+            <p><?php echo $article->getDescription(); ?></p>
+            <p>Published on <?php echo $block->getFormatDate($article->getCreatedAt()); ?></p>
+        </li>
+
+        <hr>
+    <?php } ?>
+</ul>

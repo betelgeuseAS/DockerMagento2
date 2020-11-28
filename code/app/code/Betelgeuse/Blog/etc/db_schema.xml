@@ -8,7 +8,7 @@
         <column xsi:type="varchar" name="description" nullable="false" length="1024" comment="Description"/>
         <column xsi:type="text" name="content" nullable="true" comment="Content"/>
         <column xsi:type="smallint" name="status" unsigned="true" nullable="false" identity="false" default="0" comment="Status"/>
-        <column xsi:type="smallint" name="enabled" unsigned="true" nullable="false" identity="false" default="0" comment="Enabled"/>
+        <column xsi:type="boolean" name="enabled" unsigned="true" nullable="false" identity="false" default="0" comment="Enabled"/>
         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
         <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Update Time"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
@@ -21,7 +21,7 @@
         <column xsi:type="int" name="article_id" unsigned="true" nullable="false" comment="Article ID"/>
         <column xsi:type="varchar" name="author" length="64" nullable="false" comment="Author"/>
         <column xsi:type="varchar" name="message" nullable="false" length="250" comment="Message"/>
-        <column xsi:type="smallint" name="approved" unsigned="true" nullable="false" identity="false" default="0" comment="Approved"/>
+        <column xsi:type="boolean" name="approved" unsigned="true" nullable="false" identity="false" default="0" comment="Approved"/>
         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
         <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Update Time"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">

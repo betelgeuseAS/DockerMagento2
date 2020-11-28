@@ -1,5 +1,5 @@
 <?php
-namespace Betelgeuse\Blog\Controller\Index;
+namespace Betelgeuse\Blog\Controller\Article;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
@@ -7,7 +7,7 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action implements HttpGetActionInterface, HttpPostActionInterface {
+class Create extends Action implements HttpGetActionInterface, HttpPostActionInterface {
 
     /**
      * @var PageFactory
@@ -22,9 +22,9 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
     }
 
     public
-    function execute() { // https://magento2.dev/blog/index/index/ or https://magento2.dev/blog/
+    function execute() { // https://magento2.dev/blog/article/create
         $result = $this->resultPageFactory->create();
-        $result->getConfig()->getTitle()->set('Index');
+        $result->getConfig()->getTitle()->set('Create Article');
 
         return $result;
     }
