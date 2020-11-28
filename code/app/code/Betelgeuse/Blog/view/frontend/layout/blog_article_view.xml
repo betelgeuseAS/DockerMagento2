@@ -3,6 +3,8 @@
     <body>
         <referenceContainer name="content">
             <block class="Betelgeuse\Blog\Block\Article\View" name="block" as="block" template="article/view.phtml"/>
+            <block class="Betelgeuse\Blog\Block\Comment\Listing" name="listing" as="listing" template="comment/listing.phtml"/>
+            <block class="Betelgeuse\Blog\Block\Comment\Create" name="comment" as="comment" template="comment/create.phtml"/>
         </referenceContainer>
     </body>
 </page>

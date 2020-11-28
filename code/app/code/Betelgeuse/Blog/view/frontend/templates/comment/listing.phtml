@@ -1,0 +1,15 @@
+<?php
+/** @var Betelgeuse\Blog\Block\Comment\Listing $block */
+?>
+
+<ul class="list items">
+    <?php foreach($block->getCommentCollection() as $comment) { ?>
+        <li class="item">
+            <strong><?php echo $comment->getAuthor(); ?></strong>
+            <span> | <?php echo $block->getFormatDate($comment->getCreatedAt()); ?></span>
+            <p><?php echo $comment->getMessage(); ?></p>
+        </li>
+
+        <hr>
+    <?php } ?>
+</ul>

@@ -1,10 +1,10 @@
 <?php
-namespace Betelgeuse\Blog\Block;
+namespace Betelgeuse\Blog\Block\Comment;
 
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\View\Element\Template;
 
-class CreateArticleForm extends Template {
+class Create extends Template {
 
     /**
      * @var RequestInterface
@@ -14,6 +14,7 @@ class CreateArticleForm extends Template {
     public
     function __construct(Template\Context $context, RequestInterface $request, array $data = []) {
         parent::__construct($context, $data);
+
         $this->request = $request;
     }
 
@@ -24,6 +25,8 @@ class CreateArticleForm extends Template {
      */
     public
     function getFormAction() {
-        return '/blog/index/createArticle'; // '/module_name/controller_name/action_name'
+        $articleId = (int)$this->request->getParam('id');
+
+        return '/blog/index/createComment?id=' . $articleId;
     }
 }

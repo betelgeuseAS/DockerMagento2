@@ -21,12 +21,11 @@ class Listing extends Template {
 
     public
     function getArticleCollection() {
-//        $article = $this->articleFactory->create();
-//        $article->getCollection()
-//            ->addFieldToFilter('author', 'Author2')
+        return $this->modelArticleFactory
+            ->create()
+            ->getCollection()
+            ->addFieldToFilter('enabled', true);
 //            ->load();
-
-        return $this->modelArticleFactory->create()->getCollection();
     }
 
     public
