@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Betelgeuse\Blog\Block\Article\Listing" name="block" as="block" template="article/listing.phtml"/>
+            <block class="Betelgeuse\Blog\Block\Article\Listing" name="blog.article.listing" as="blog.article.listing" template="article/listing.phtml"/>
         </referenceContainer>
     </body>
 </page>

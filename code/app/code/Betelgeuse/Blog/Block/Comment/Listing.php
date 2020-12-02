@@ -2,7 +2,6 @@
 namespace Betelgeuse\Blog\Block\Comment;
 
 use DateTime;
-use Magento\Framework\App\RequestInterface;
 use Magento\Framework\View\Element\Template;
 use Betelgeuse\Blog\Model\CommentFactory;
 
@@ -13,22 +12,16 @@ class Listing extends Template {
      */
     private $modelCommentFactory;
 
-    /**
-     * @var RequestInterface
-     */
-    private $request;
-
     public
-    function __construct(Template\Context $context, CommentFactory $modelCommentFactory, RequestInterface $request, array $data = []) {
+    function __construct(Template\Context $context, CommentFactory $modelCommentFactory, array $data = []) {
         parent::__construct($context, $data);
 
         $this->modelCommentFactory = $modelCommentFactory;
-        $this->request = $request;
     }
 
     public
     function getCommentCollection() {
-        $articleId = (int)$this->request->getParam('id');
+        $articleId = (int)$this->getData('article_id');
 
         return $this->modelCommentFactory
             ->create()

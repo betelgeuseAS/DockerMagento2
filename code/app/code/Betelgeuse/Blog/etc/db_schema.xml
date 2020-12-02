@@ -11,6 +11,7 @@
         <column xsi:type="boolean" name="enabled" unsigned="true" nullable="false" identity="false" default="0" comment="Enabled"/>
         <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
         <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Update Time"/>
+        <column xsi:type="varchar" name="url" nullable="true" length="250" comment="Url"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>
         </constraint>

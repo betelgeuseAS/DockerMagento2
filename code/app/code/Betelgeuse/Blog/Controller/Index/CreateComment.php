@@ -9,6 +9,7 @@ use Magento\Framework\App\RequestInterface;
 use Magento\Framework\View\Result\PageFactory;
 use Betelgeuse\Blog\Model\ArticleFactory;
 use Betelgeuse\Blog\Model\Article;
+use Betelgeuse\Blog\Model\Comment;
 
 class CreateComment extends Action implements HttpGetActionInterface, HttpPostActionInterface {
 
@@ -46,7 +47,7 @@ class CreateComment extends Action implements HttpGetActionInterface, HttpPostAc
             return;
         }
 
-        $model = $this->_objectManager->create(\Betelgeuse\Blog\Model\Comment::class);
+        $model = $this->_objectManager->create(Comment::class);
         $model->setArticleId($articleId);
         $model->setAuthor($post['author']);
         $model->setMessage($post['message']);

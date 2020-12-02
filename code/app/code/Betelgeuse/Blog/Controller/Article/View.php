@@ -5,27 +5,45 @@ use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
-use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Result\Page;
 
 class View extends Action implements HttpGetActionInterface, HttpPostActionInterface {
 
     /**
-     * @var PageFactory
+     * @var RequestInterface
      */
-    private $resultPageFactory;
+    private $request;
 
     public
-    function __construct(Context $context, PageFactory $resultPageFactory) {
+    function __construct(Context $context, RequestInterface $request) {
         parent::__construct($context);
 
-        $this->resultPageFactory = $resultPageFactory;
+        $this->request = $request;
     }
 
     public
-    function execute() { // https://magento2.dev/blog/article/view?article_id=1
-        $result = $this->resultPageFactory->create();
-        $result->getConfig()->getTitle()->set('View Article');
+    function execute() { // https://magento2.dev/blog/article/view?id=1
+        /** @var Page $page */
+        $page = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        $page->getConfig()->getTitle()->set('View Article');
 
-        return $result;
+        $articleId = (int)$this->request->getParam('id');
+
+        /** @var Template $blockArticleView */
+        $blockArticleView = $page->getLayout()->getBlock('blog.article.view');
+        $blockArticleView->setData('article_id', $articleId);
+
+        /** @var Template $blockArticleCommentListing */
+        $blockArticleCommentListing = $page->getLayout()->getBlock('blog.article.comment.listing');
+        $blockArticleCommentListing->setData('article_id', $articleId);
+
+        /** @var Template $blockArticleCommentCreate */
+        $blockArticleCommentCreate = $page->getLayout()->getBlock('blog.article.comment.create');
+        $blockArticleCommentCreate->setData('article_id', $articleId);
+
+        return $page;
     }
 }

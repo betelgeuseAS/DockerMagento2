@@ -2,9 +2,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Betelgeuse\Blog\Block\Article\View" name="block" as="block" template="article/view.phtml"/>
-            <block class="Betelgeuse\Blog\Block\Comment\Listing" name="listing" as="listing" template="comment/listing.phtml"/>
-            <block class="Betelgeuse\Blog\Block\Comment\Create" name="comment" as="comment" template="comment/create.phtml"/>
+            <block class="Betelgeuse\Blog\Block\Article\View" name="blog.article.view" as="blog.article.view" template="article/view.phtml"/>
+            <block class="Betelgeuse\Blog\Block\Comment\Listing" name="blog.article.comment.listing" as="blog.article.comment.listing" template="comment/listing.phtml"/>
+            <block class="Betelgeuse\Blog\Block\Comment\Create" name="blog.article.comment.create" as="blog.article.comment.create" template="comment/create.phtml"/>
         </referenceContainer>
     </body>
 </page>
