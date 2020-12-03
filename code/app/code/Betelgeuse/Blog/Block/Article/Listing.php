@@ -1,10 +1,18 @@
 <?php
 namespace Betelgeuse\Blog\Block\Article;
 
+use Exception;
 use DateTime;
 use Magento\Framework\View\Element\Template;
 use Betelgeuse\Blog\Model\ArticleFactory;
+use Magento\Framework\Data\Collection\AbstractDb;
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
+/**
+ * Class Listing
+ *
+ * @package Betelgeuse\Blog\Block\Article
+ */
 class Listing extends Template {
 
     /**
@@ -12,6 +20,11 @@ class Listing extends Template {
      */
     private $modelArticleFactory;
 
+    /**
+     * @param Template\Context $context
+     * @param ArticleFactory $modelArticleFactory
+     * @param array $data
+     */
     public
     function __construct(Template\Context $context, ArticleFactory $modelArticleFactory, array $data = []) {
         parent::__construct($context, $data);
@@ -19,6 +32,9 @@ class Listing extends Template {
         $this->modelArticleFactory = $modelArticleFactory;
     }
 
+    /**
+     * @return AbstractDb|AbstractCollection|null
+     */
     public
     function getArticleCollection() {
         return $this->modelArticleFactory
@@ -28,6 +44,11 @@ class Listing extends Template {
 //            ->load();
     }
 
+    /**
+     * @param $stringDate
+     * @return string
+     * @throws Exception
+     */
     public
     function getFormatDate($stringDate) {
         $date = new DateTime($stringDate);

@@ -7,6 +7,11 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
+/**
+ * Class Listing
+ *
+ * @package Betelgeuse\Blog\Controller\Article
+ */
 class Listing extends Action implements HttpGetActionInterface, HttpPostActionInterface {
 
     /**
@@ -14,6 +19,10 @@ class Listing extends Action implements HttpGetActionInterface, HttpPostActionIn
      */
     private $resultPageFactory;
 
+    /**
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
+     */
     public
     function __construct(Context $context, PageFactory $resultPageFactory) {
         parent::__construct($context);
@@ -21,6 +30,9 @@ class Listing extends Action implements HttpGetActionInterface, HttpPostActionIn
         $this->resultPageFactory = $resultPageFactory;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public
     function execute() { // https://magento2.dev/blog/article/listing
         $result = $this->resultPageFactory->create();

@@ -9,6 +9,11 @@ use Magento\Framework\View\Result\PageFactory;
 use Betelgeuse\Blog\Model\ArticleFactory;
 use Betelgeuse\Blog\Model\Article;
 
+/**
+ * Class CreateArticle
+ *
+ * @package Betelgeuse\Blog\Controller\Index
+ */
 class CreateArticle extends Action implements HttpGetActionInterface, HttpPostActionInterface {
 
     /**

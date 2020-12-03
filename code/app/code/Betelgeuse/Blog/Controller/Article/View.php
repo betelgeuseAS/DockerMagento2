@@ -2,35 +2,29 @@
 namespace Betelgeuse\Blog\Controller\Article;
 
 use Magento\Framework\App\Action\Action;
-use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
-use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Result\Page;
 
+/**
+ * Class View
+ *
+ * @package Betelgeuse\Blog\Controller\Article
+ */
 class View extends Action implements HttpGetActionInterface, HttpPostActionInterface {
 
     /**
-     * @var RequestInterface
+     * {@inheritdoc}
      */
-    private $request;
-
-    public
-    function __construct(Context $context, RequestInterface $request) {
-        parent::__construct($context);
-
-        $this->request = $request;
-    }
-
     public
     function execute() { // https://magento2.dev/blog/article/view?id=1
         /** @var Page $page */
         $page = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
         $page->getConfig()->getTitle()->set('View Article');
 
-        $articleId = (int)$this->request->getParam('id');
+        $articleId = (int)$this->getRequest()->getParam('id');
 
         /** @var Template $blockArticleView */
         $blockArticleView = $page->getLayout()->getBlock('blog.article.view');

@@ -3,6 +3,11 @@ namespace Betelgeuse\Blog\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
+/**
+ * Class Article
+ *
+ * @package Betelgeuse\Blog\Model\ResourceModel
+ */
 class Article extends AbstractDb {
 
     /**

@@ -2,28 +2,28 @@
 namespace Betelgeuse\Blog\Setup\Patch\Data;
 
 use Magento\Framework\Setup\Patch\DataPatchInterface;
+use Betelgeuse\Blog\Model\ArticleFactory;
+use Betelgeuse\Blog\Model\Article;
 
 /**
- * Class EnableSegmentation.
+ * Class CreateArticles
  *
- * @package Magento\Catalog\Setup\Patch
+ * @package Betelgeuse\Blog\Setup\Patch\Data
  */
 class CreateArticles implements DataPatchInterface {
 
     /**
-     * @var \Betelgeuse\Blog\Model\ArticleFactory
+     * @var ArticleFactory
      */
     private $articleFactory;
 
     /**
      * EnableSegmentation constructor.
      *
-     * @param \Betelgeuse\Blog\Model\ArticleFactory $articleFactory
+     * @param ArticleFactory $articleFactory
      */
     public
-    function __construct(
-        \Betelgeuse\Blog\Model\ArticleFactory $articleFactory
-    ) {
+    function __construct(ArticleFactory $articleFactory) {
         $this->articleFactory = $articleFactory;
     }
 
@@ -75,7 +75,7 @@ class CreateArticles implements DataPatchInterface {
             ],
         ];
 
-        /** @var \Betelgeuse\Blog\Model\Article $article */
+        /** @var Article $article */
         $article = $this->articleFactory->create();
 
         foreach ($data as $item) {
@@ -93,6 +93,7 @@ class CreateArticles implements DataPatchInterface {
             $article->save();
         }
     }
+
     /**
      * {@inheritdoc}
      */

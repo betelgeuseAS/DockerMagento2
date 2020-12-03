@@ -3,6 +3,11 @@ namespace Betelgeuse\Blog\Block\Comment;
 
 use Magento\Framework\View\Element\Template;
 
+/**
+ * Class Create
+ *
+ * @package Betelgeuse\Blog\Block\Comment
+ */
 class Create extends Template {
 
     /**

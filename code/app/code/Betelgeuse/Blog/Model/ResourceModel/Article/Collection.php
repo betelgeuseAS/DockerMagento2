@@ -3,6 +3,11 @@ namespace Betelgeuse\Blog\Model\ResourceModel\Article;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
+/**
+ * Class Collection
+ *
+ * @package Betelgeuse\Blog\Model\ResourceModel\Article
+ */
 class Collection extends AbstractCollection {
 
     /**

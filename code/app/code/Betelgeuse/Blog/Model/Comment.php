@@ -3,6 +3,11 @@ namespace Betelgeuse\Blog\Model;
 
 use Magento\Framework\Model\AbstractModel;
 
+/**
+ * Class Comment
+ *
+ * @package Betelgeuse\Blog\Model
+ */
 class Comment extends AbstractModel {
 
     /**

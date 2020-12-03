@@ -3,6 +3,11 @@ namespace Betelgeuse\Blog\Model\ResourceModel\Comment;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
+/**
+ * Class Collection
+ *
+ * @package Betelgeuse\Blog\Model\ResourceModel\Comment
+ */
 class Collection extends AbstractCollection {
 
     /**
