@@ -3,49 +3,39 @@
 ?>
 
 <div class="actions">
-    <a href="<?= $block->getUrl('blog/article/listing'); ?>" class="action primary" title="Back"><span><?= $block->escapeHtmlAttr(__('Back')); ?></span></a>
+    <a href="<?= $block->getUrl('blog/article/listing'); ?>" class="btn btn-outline-secondary">
+        <span><?= $block->escapeHtmlAttr(__('Back')); ?></span>
+    </a>
 </div>
 
-<div>
+<div class="mt-5">
     <form name="addData" method="post" id="addData" class="form"
           action="<?php echo $this->getFormAction(); ?>"
           data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
           data-mage-init='{"validation":{}}'>
-        <fieldset class="fieldset">
-            <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Create New Article')) ?></span></legend>
-            <fieldset class="fieldset row">
-                <div class="fields">
-                    <div class="field required">
-                        <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Author')) ?></span></label>
-                        <div class="control">
-                            <input name="author" id="author" title="Author" value="" class="input-text" type="text" data-validate="{required:true, 'validate-author':true}">
-                        </div>
-                    </div>
-                    <div class="field required">
-                        <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Title')) ?></span></label>
-                        <div class="control">
-                            <input name="title" id="title" title="Title" value="" class="input-text" type="text" data-validate="{required:true, 'validate-title':true}">
-                        </div>
-                    </div>
-                    <div class="field required">
-                        <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Description')) ?></span></label>
-                        <div class="control">
-                            <textarea name="description" id="description" title="Description" value="" class="input-text" type="text" data-validate="{required:true}"></textarea>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Content')) ?></span></label>
-                        <div class="control">
-                            <textarea name="content" id="content" title="Content" value="" class="input-text" data-validate="{required:false}"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-        </fieldset>
-        <div class="actions-toolbar">
-            <div class="primary">
-                <button type="submit" class="action submit primary" title="Save"><span><?= $block->escapeHtmlAttr(__('Save')) ?></span></button>
-            </div>
+        <div class="form-group required">
+            <label for="author"><?= $block->escapeHtmlAttr(__('Author')) ?></label>
+            <input name="author" type="text" class="form-control" id="author" data-validate="{required:true, 'validate-author':true}">
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
         </div>
+
+        <div class="form-group required">
+            <label for="title"><?= $block->escapeHtmlAttr(__('Title')) ?></label>
+            <input name="title" type="text" class="form-control" id="title" data-validate="{required:true, 'validate-author':true}">
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
+        </div>
+
+        <div class="form-group required">
+            <label for="description"><?= $block->escapeHtmlAttr(__('Description')) ?></label>
+            <textarea name="description" type="text" class="form-control" id="description" data-validate="{required:true, 'validate-author':true}"></textarea>
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
+        </div>
+
+        <div class="form-group">
+            <label for="content"><?= $block->escapeHtmlAttr(__('Content')) ?></label>
+            <textarea name="content" type="text" class="form-control" id="content" data-validate="{required:false}"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success float-right mt-3"><?= $block->escapeHtmlAttr(__('Save Article')) ?></button>
     </form>
 </div>

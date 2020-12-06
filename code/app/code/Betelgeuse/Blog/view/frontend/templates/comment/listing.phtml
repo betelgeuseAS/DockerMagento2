@@ -2,14 +2,14 @@
 /** @var Betelgeuse\Blog\Block\Comment\Listing $block */
 ?>
 
-<ul class="list items">
+<h3 class="mt-5">Comments</h3>
+
+<ul class="list-group list-group-flush">
     <?php foreach($block->getCommentCollection() as $comment) { ?>
-        <li class="item">
+        <li class="list-group-item list-group-item-light">
             <strong><?php echo $comment->getAuthor(); ?></strong>
             <span> | <?php echo $block->getFormatDate($comment->getCreatedAt()); ?></span>
             <p><?php echo $comment->getMessage(); ?></p>
         </li>
-
-        <hr>
     <?php } ?>
 </ul>

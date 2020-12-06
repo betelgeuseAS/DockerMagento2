@@ -3,19 +3,20 @@
 ?>
 
 <div class="actions">
-    <a href="<?= $block->getUrl('blog/article/create'); ?>" class="action primary" title="Create"><span><?= $block->escapeHtmlAttr(__('Create')); ?></span></a>
+    <a href="<?= $block->getUrl('blog/article/create'); ?>" class="btn btn-outline-primary float-right">
+        <span><?= $block->escapeHtmlAttr(__('Create Article')); ?></span>
+    </a>
 </div>
 
-<ul class="list items">
+<ul class="list-group list-group-flush mt-5">
     <?php foreach($block->getArticleCollection() as $article) { ?>
-        <li class="item">
+        <li class="list-group-item list-group-item-light">
             <a href="<?= $block->getUrl('blog/article/view?id=' . $article->getEntityId()); ?>">
                 <strong><?php echo $article->getTitle(); ?></strong>
             </a>
-            <p><?php echo $article->getDescription(); ?></p>
-            <p>Published on <?php echo $block->getFormatDate($article->getCreatedAt()); ?></p>
-        </li>
 
-        <hr>
+            <p><?php echo $article->getDescription(); ?></p>
+            <p class="mb-0">Published on <?php echo $block->getFormatDate($article->getCreatedAt()); ?></p>
+        </li>
     <?php } ?>
 </ul>

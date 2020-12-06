@@ -3,23 +3,26 @@
 ?>
 
 <div class="actions">
-    <a href="<?= $block->getUrl('blog/article/listing'); ?>" class="action primary" title="Back"><span><?= $block->escapeHtmlAttr(__('Back')); ?></span></a>
+    <a href="<?= $block->getUrl('blog/article/listing'); ?>" class="btn btn-outline-secondary">
+        <span><?= $block->escapeHtmlAttr(__('Back')); ?></span>
+    </a>
 </div>
 
-<?php $article = $block->getArticle(); ?>
+<div class="mt-5">
+    <?php $article = $block->getArticle(); ?>
 
-<?php if( $article = $block->getArticle() ): ?>
-    <h3><?php echo $article->getTitle(); ?></h3>
+    <?php if( $article = $block->getArticle() ): ?>
+        <h3><?php echo $article->getTitle(); ?></h3>
 
-    <div>
-        <strong><?php echo $article->getAuthor(); ?></strong>
-        <span> | </span>
-        <span><?php echo $block->getFormatDate($article->getCreatedAt()); ?></span>
-    </div>
+        <div class="mb-3">
+            <strong><?php echo $article->getAuthor(); ?> | </strong>
+            <span><?php echo $block->getFormatDate($article->getCreatedAt()); ?></span>
+        </div>
 
-    <?php if( $article->getContent() ): ?>
-        <p><?php echo $article->getContent(); ?></p>
-    <?php else: ?>
-        <p><?php echo $article->getDescription(); ?></p>
+        <?php if( $article->getContent() ): ?>
+            <p><?php echo $article->getContent(); ?></p>
+        <?php else: ?>
+            <p><?php echo $article->getDescription(); ?></p>
+        <?php endif; ?>
     <?php endif; ?>
-<?php endif; ?>
+</div>

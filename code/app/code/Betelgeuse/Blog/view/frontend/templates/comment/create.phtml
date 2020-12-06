@@ -2,34 +2,23 @@
 /** @var Betelgeuse\Blog\Block\Comment\Create $block */
 ?>
 
-<div>
+<div class="mt-1">
     <form name="addData" method="post" id="addData" class="form"
           action="<?php echo $this->getFormAction(); ?>"
           data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
           data-mage-init='{"validation":{}}'>
-        <fieldset class="fieldset">
-            <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Create New Comment')) ?></span></legend>
-            <fieldset class="fieldset row">
-                <div class="fields">
-                    <div class="field required">
-                        <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Author')) ?></span></label>
-                        <div class="control">
-                            <input name="author" id="author" title="Author" value="" class="input-text" type="text" data-validate="{required:true, 'validate-author':true}">
-                        </div>
-                    </div>
-                    <div class="field required">
-                        <label class="label" for="title"><span><?= $block->escapeHtmlAttr(__('Message')) ?></span></label>
-                        <div class="control">
-                            <textarea name="message" id="message" title="Message" value="" class="input-text" data-validate="{required:true, 'validate-title':true}"></textarea>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-        </fieldset>
-        <div class="actions-toolbar">
-            <div class="primary">
-                <button type="submit" class="action submit primary" title="Save"><span><?= $block->escapeHtmlAttr(__('Save')) ?></span></button>
-            </div>
+        <div class="form-group required">
+            <label for="author"><?= $block->escapeHtmlAttr(__('Author')) ?></label>
+            <input name="author" type="text" class="form-control" id="author" data-validate="{required:true, 'validate-author':true}">
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
         </div>
+
+        <div class="form-group required">
+            <label for="message"><?= $block->escapeHtmlAttr(__('Message')) ?></label>
+            <textarea name="message" type="text" class="form-control" id="message" data-validate="{required:true, 'validate-author':true}"></textarea>
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success float-right mt-1"><?= $block->escapeHtmlAttr(__('Save Comment')) ?></button>
     </form>
 </div>
