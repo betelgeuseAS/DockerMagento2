@@ -4,6 +4,8 @@ namespace Betelgeuse\Blog\Helper;
 use Betelgeuse\Blog\Model\ArticleFactory;
 use \Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
+use Magento\Framework\Data\Collection\AbstractDb;
+use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
 /**
  * Class Data
@@ -47,5 +49,16 @@ class Data extends AbstractHelper {
         }
 
         return $urlList;
+    }
+
+    /**
+     * @return AbstractDb|AbstractCollection|null
+     */
+    public
+    function getArticles() {
+        return $this->modelArticleFactory
+            ->create()
+            ->getCollection()
+            ->addFieldToFilter('enabled', true);
     }
 }
