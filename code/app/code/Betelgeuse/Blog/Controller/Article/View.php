@@ -38,6 +38,16 @@ class View extends Action implements HttpGetActionInterface, HttpPostActionInter
         $blockArticleCommentCreate = $page->getLayout()->getBlock('blog.article.comment.create');
         $blockArticleCommentCreate->setData('article_id', $articleId);
 
+        // Use Plugin
+        $result = $this->plugin(1, 2,3);
+
+        // Use Event
+        $this->_eventManager->dispatch('view_article_after', ['action' => $this, 'page' => $page]);
+
         return $page;
+    }
+
+    public function plugin($a, $b, $c) {
+        return $a + $b + $c;
     }
 }
