@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+<!--        <referenceContainer name="product.info.main">-->
+        <referenceContainer name="product.info.options.wrapper.bottom">
+            <block class="Elogic\Anbis\Block\Block"
+                   name="product.view.extra"
+                   template="block/block.phtml"
+                   after="product.info.overview">
+            </block>
+            <block class="Magento\Cms\Block\Block" name="Promo">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">test-block</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

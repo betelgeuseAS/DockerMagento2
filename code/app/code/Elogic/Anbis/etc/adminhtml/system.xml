@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="elogic" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Elogic</label>
+            <tab>general</tab>
+            <resource>Magento_Config::currency</resource>
+            <group id="anbis" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Anbis</label>
+                <field id="block1" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block1</label>
+                    <comment>Block1.</comment>
+                </field>
+                <field id="block2" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Block2</label>
+                    <comment>Block2.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
