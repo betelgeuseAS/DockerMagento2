@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding="utf-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Variable\Model\Source\Variables">
+        <arguments>
+            <argument name="configPaths" xsi:type="array">
+                <item name="elogic/anbis" xsi:type="array">
+                    <item name="elogic/anbis/block2" xsi:type="string">1</item> <!-- add elogic/anbis/block2 configuration to list variables. After that you can use this config via directory (<div>{{config path="elogic/anbis/block2"}}</div>) or insert variable in CMS Block editor -->
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
