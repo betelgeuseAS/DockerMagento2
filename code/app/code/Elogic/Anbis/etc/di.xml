@@ -9,4 +9,5 @@
             </argument>
         </arguments>
     </type>
+    <preference for="Magento\Quote\Model\Quote" type="Elogic\Anbis\Model\Quote" />
 </config>
