@@ -3,4 +3,7 @@
     <type name="Betelgeuse\Blog\Controller\Article\View">
         <plugin name="betelgeuse_plugin" type="Betelgeuse\Blog\Controller\Plugin" sortOrder="10" disabled="false" />
     </type>
+    <preference for="Betelgeuse\Blog\Api\HamburgerRepositoryInterface" type="Betelgeuse\Blog\Model\HamburgerRepository"/>
+    <preference for="Betelgeuse\Blog\Api\Data\HamburgerInterface" type="Betelgeuse\Blog\Model\Hamburger"/>
+    <preference for="Betelgeuse\Blog\Api\Data\HamburgerSearchResultInterface" type="Betelgeuse\Blog\Model\HamburgerSearchResult"/>
 </config>

@@ -7,6 +7,7 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 use Betelgeuse\Blog\Helper\Data;
+use Betelgeuse\Blog\Api\HamburgerRepositoryInterface;
 
 /**
  * Class Index
@@ -25,6 +26,8 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
      */
     private $helper;
 
+    protected $_testReporitory;
+
     /**
      * Index constructor.
      *
@@ -33,11 +36,12 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
      * @param Data $helper
      */
     public
-    function __construct(Context $context, PageFactory $resultPageFactory, Data $helper) {
+    function __construct(Context $context, PageFactory $resultPageFactory, HamburgerRepositoryInterface $testReporitory, Data $helper) {
         parent::__construct($context);
 
         $this->resultPageFactory = $resultPageFactory;
         $this->helper = $helper;
+        $this->_testReporitory = $testReporitory;
     }
 
     /**
@@ -49,6 +53,14 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
 
         $result = $this->resultPageFactory->create();
         $result->getConfig()->getTitle()->set('Index');
+
+        try {
+            $testId = 1;//any id
+            $data = $this->_testReporitory->getById($testId);
+            die($data->getData('title'));
+        } catch (\Exception $e) {
+            $this->messageManager->addException($e, $e->getMessage());
+        }
 
         return $result;
     }
