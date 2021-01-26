@@ -43,7 +43,7 @@ class HamburgerRepository implements HamburgerRepositoryInterface
 
     public function getList(SearchCriteriaInterface $searchCriteria)
     {
-        $collection = $this->collectionFactory->create();
+        $collection = $this->hamburgerCollectionFactory->create();
 
         $this->addFiltersToCollection($searchCriteria, $collection);
         $this->addSortOrdersToCollection($searchCriteria, $collection);

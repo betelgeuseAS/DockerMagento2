@@ -8,6 +8,10 @@ use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 use Betelgeuse\Blog\Helper\Data;
 use Betelgeuse\Blog\Api\HamburgerRepositoryInterface;
+use Magento\Tax\Api\TaxClassManagementInterface;
+use Magento\Tax\Model\ClassModel;
+
+//filterBuilder
 
 /**
  * Class Index
@@ -29,6 +33,16 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
     protected $_testReporitory;
 
     /**
+     * @var \Magento\Framework\Api\FilterBuilder
+     */
+    protected $filterBuilder;
+
+    /**
+     * @var \Magento\Framework\Api\SearchCriteriaBuilder
+     */
+    protected $searchCriteriaBuilder;
+
+    /**
      * Index constructor.
      *
      * @param Context $context
@@ -36,12 +50,21 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
      * @param Data $helper
      */
     public
-    function __construct(Context $context, PageFactory $resultPageFactory, HamburgerRepositoryInterface $testReporitory, Data $helper) {
+    function __construct(
+        Context $context,
+        PageFactory $resultPageFactory,
+        HamburgerRepositoryInterface $testReporitory,
+        Data $helper,
+        \Magento\Framework\Api\FilterBuilder $filterBuilder,
+        \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder
+    ) {
         parent::__construct($context);
 
         $this->resultPageFactory = $resultPageFactory;
         $this->helper = $helper;
         $this->_testReporitory = $testReporitory;
+        $this->filterBuilder = $filterBuilder;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
     }
 
     /**
@@ -50,6 +73,13 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
     public
     function execute() { // https://magento2.dev/blog/index/index/ or https://magento2.dev/blog/
         // $urlList = $this->helper->getUrlList();
+
+        $filter = $this->filterBuilder
+            ->setField('author')
+            ->setValue('Author2')
+            ->create();
+        $searchCriteria = $this->searchCriteriaBuilder->addFilters([$filter])->create();
+        $searchResults = $this->_testReporitory->getList($searchCriteria);
 
         $result = $this->resultPageFactory->create();
         $result->getConfig()->getTitle()->set('Index');
