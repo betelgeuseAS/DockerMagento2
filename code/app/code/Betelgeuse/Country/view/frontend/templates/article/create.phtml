@@ -1,0 +1,41 @@
+<?php
+/** @var Betelgeuse\Blog\Block\Article\Create $block */
+?>
+
+<div class="actions">
+    <a href="<?= $block->getUrl('blog/article/listing'); ?>" class="btn btn-outline-secondary">
+        <span><?= $block->escapeHtmlAttr(__('Back')); ?></span>
+    </a>
+</div>
+
+<div class="mt-5">
+    <form name="addData" method="post" id="addData" class="form"
+          action="<?php echo $this->getFormAction(); ?>"
+          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+          data-mage-init='{"validation":{}}'>
+        <div class="form-group required">
+            <label for="author"><?= $block->escapeHtmlAttr(__('Author')) ?></label>
+            <input name="author" type="text" class="form-control" id="author" data-validate="{required:true, 'validate-author':true}">
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
+        </div>
+
+        <div class="form-group required">
+            <label for="title"><?= $block->escapeHtmlAttr(__('Title')) ?></label>
+            <input name="title" type="text" class="form-control" id="title" data-validate="{required:true, 'validate-author':true}">
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
+        </div>
+
+        <div class="form-group required">
+            <label for="description"><?= $block->escapeHtmlAttr(__('Description')) ?></label>
+            <textarea name="description" type="text" class="form-control" id="description" data-validate="{required:true, 'validate-author':true}"></textarea>
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
+        </div>
+
+        <div class="form-group">
+            <label for="content"><?= $block->escapeHtmlAttr(__('Content')) ?></label>
+            <textarea name="content" type="text" class="form-control" id="content" data-validate="{required:false}"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success float-right mt-3"><?= $block->escapeHtmlAttr(__('Save Article')) ?></button>
+    </form>
+</div>

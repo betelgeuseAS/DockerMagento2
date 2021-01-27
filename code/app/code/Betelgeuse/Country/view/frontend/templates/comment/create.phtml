@@ -1,0 +1,24 @@
+<?php
+/** @var Betelgeuse\Blog\Block\Comment\Create $block */
+?>
+
+<div class="mt-1">
+    <form name="addData" method="post" id="addData" class="form"
+          action="<?php echo $this->getFormAction(); ?>"
+          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+          data-mage-init='{"validation":{}}'>
+        <div class="form-group required">
+            <label for="author"><?= $block->escapeHtmlAttr(__('Author')) ?></label>
+            <input name="author" type="text" class="form-control" id="author" data-validate="{required:true, 'validate-author':true}">
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
+        </div>
+
+        <div class="form-group required">
+            <label for="message"><?= $block->escapeHtmlAttr(__('Message')) ?></label>
+            <textarea name="message" type="text" class="form-control" id="message" data-validate="{required:true, 'validate-author':true}"></textarea>
+            <small id="emailHelp" class="form-text text-muted">Require Field</small>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success float-right mt-1"><?= $block->escapeHtmlAttr(__('Save Comment')) ?></button>
+    </form>
+</div>
