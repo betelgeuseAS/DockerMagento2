@@ -28,12 +28,14 @@ interface HamburgerInterface extends ExtensibleDataInterface
     public function setName($name);
 
     /**
-     * @return \Betelgeuse\Blog\Api\Data\IngredientInterface[]
+//     * @return \Betelgeuse\Blog\Api\Data\IngredientInterface[]
+     * @return mixed
      */
     public function getIngredients();
 
     /**
-     * @param \Betelgeuse\Blog\Api\Data\IngredientInterface[] $ingredients
+//     * @param \Betelgeuse\Blog\Api\Data\IngredientInterface[] $ingredients
+     * @param mixed
      * @return void
      */
     public function setIngredients(array $ingredients);

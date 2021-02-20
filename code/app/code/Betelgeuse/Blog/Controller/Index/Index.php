@@ -121,17 +121,38 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
 //            ->where('t1.salary > t2.average_salary');
 //        $data = $connection->fetchAll($query);
 
-        $subQuery1 = $connection->select()
-            ->from('test', new \Zend_Db_Expr('avg(salary)'))
-            ->where("company = 'Company1'");
-        $subQuery2 = $connection->select()
-            ->from('test', new \Zend_Db_Expr('avg(salary)'))
-            ->where("company = 'Company2'");
-        $query = $connection->select()
-            ->from('test', ['company', 'name', 'salary'])
-            ->where('salary > ' . new \Zend_Db_Expr('('.$subQuery1.')') . 'and company = :com1')
-            ->orWhere('salary > ' . new \Zend_Db_Expr('('.$subQuery2.')') . 'and company = :com2');
-        $data = $this->_resourceConnection->getConnection()->fetchAll($query, ['com1' => 'Company1', 'com2' => 'Company2']);
+//        $subQuery1 = $connection->select()
+//            ->from('test', new \Zend_Db_Expr('avg(salary)'))
+//            ->where("company = 'Company1'");
+//        $subQuery2 = $connection->select()
+//            ->from('test', new \Zend_Db_Expr('avg(salary)'))
+//            ->where("company = 'Company2'");
+//        $query = $connection->select()
+//            ->from('test', ['company', 'name', 'salary'])
+//            ->where('salary > ' . new \Zend_Db_Expr('('.$subQuery1.')') . 'and company = :com1')
+//            ->orWhere('salary > ' . new \Zend_Db_Expr('('.$subQuery2.')') . 'and company = :com2');
+//        $data = $this->_resourceConnection->getConnection()->fetchAll($query, ['com1' => 'Company1', 'com2' => 'Company2']);
+
+
+
+        // Client
+        $apiClient = new ApiClient('betelgeuse', 'Idialiy1');
+        $data = '{
+            "page": {
+                "identifier": "mage-2-blog",
+                "title": "Mage 2 Blog Example",
+                "page_layout": "2columns-right",
+                "meta_keywords": "Page keywords",
+                "meta_description": "Page description",
+                "content_heading": "A New Page for the blog",
+                "content": "A New Page for the blog - with some new content",
+                "sort_order": "0",
+                "active": true
+            }
+        }';
+        $cmsBlock = $apiClient->createCmsBlock(json_decode($data));
+
+
 
         $result = $this->resultPageFactory->create();
         $result->getConfig()->getTitle()->set('Index');
