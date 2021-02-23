@@ -6,4 +6,6 @@
     <preference for="Betelgeuse\Blog\Api\HamburgerRepositoryInterface" type="Betelgeuse\Blog\Model\HamburgerRepository"/>
     <preference for="Betelgeuse\Blog\Api\Data\HamburgerInterface" type="Betelgeuse\Blog\Model\Hamburger"/>
     <preference for="Betelgeuse\Blog\Api\Data\HamburgerSearchResultInterface" type="Betelgeuse\Blog\Model\HamburgerSearchResult"/>
+
+    <preference for="Betelgeuse\Blog\Api\CustomInterface" type="Betelgeuse\Blog\Model\Api\Custom"/>
 </config>

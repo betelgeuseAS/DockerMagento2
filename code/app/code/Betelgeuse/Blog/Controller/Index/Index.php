@@ -136,21 +136,21 @@ class Index extends Action implements HttpGetActionInterface, HttpPostActionInte
 
 
         // Client
-        $apiClient = new ApiClient('betelgeuse', 'Idialiy1');
-        $data = '{
-            "page": {
-                "identifier": "mage-2-blog",
-                "title": "Mage 2 Blog Example",
-                "page_layout": "2columns-right",
-                "meta_keywords": "Page keywords",
-                "meta_description": "Page description",
-                "content_heading": "A New Page for the blog",
-                "content": "A New Page for the blog - with some new content",
-                "sort_order": "0",
-                "active": true
-            }
-        }';
-        $cmsBlock = $apiClient->createCmsBlock(json_decode($data));
+//        $apiClient = new ApiClient('betelgeuse', 'Idialiy1');
+//        $data = '{
+//            "page": {
+//                "identifier": "mage-2-blog",
+//                "title": "Mage 2 Blog Example",
+//                "page_layout": "2columns-right",
+//                "meta_keywords": "Page keywords",
+//                "meta_description": "Page description",
+//                "content_heading": "A New Page for the blog",
+//                "content": "A New Page for the blog - with some new content",
+//                "sort_order": "0",
+//                "active": true
+//            }
+//        }';
+//        $cmsBlock = $apiClient->createCmsBlock(json_decode($data));
 
 
 

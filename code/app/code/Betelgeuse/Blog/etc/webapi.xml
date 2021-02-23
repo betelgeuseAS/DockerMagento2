@@ -30,4 +30,17 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+
+    <route method="GET" url="/V1/custom/articles/">
+        <service class="Betelgeuse\Blog\Api\CustomInterface" method="getArticles"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+<!--    <route method="PUT" url="/V1/custom/articles/{articleId}">-->
+<!--        <service class="Betelgeuse\Blog\Api\CustomInterface" method="updateArticle"/>-->
+<!--        <resources>-->
+<!--            <resource ref="anonymous"/>-->
+<!--        </resources>-->
+<!--    </route>-->
 </routes>
