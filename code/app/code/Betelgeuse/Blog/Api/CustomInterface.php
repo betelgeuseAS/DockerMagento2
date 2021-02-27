@@ -1,8 +1,6 @@
 <?php
 namespace Betelgeuse\Blog\Api;
 
-use Magento\Tests\NamingConvention\true\object;
-
 interface CustomInterface {
 
     // sudo rm -rf code/generated/
